@@ -1,0 +1,51 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu</title>
+</head>
+<body>  
+    <h1 style="margin: 0.5vw; padding: 0.5vw; display: flex; align-self: center; align-content: center;">{{Title}}</h1> 
+    <form method="GET" action="" style="margin-top:1vw; margin-bottom:1vw; margin: 1vw">
+        <input type="search" name="search" placeholder="Search" style="margin: 0.3vw; padding: 0.3vw; width: 15vw; border: 1px solid #ccc; border-radius: 5px;">
+        <select name="type" style="margin: 0.3vw; padding: 0.3vw; width: 10vw; border: 1px solid #ccc; border-radius: 5px;">
+            <option value="">All Types</option>
+            <option value="Appetizer">Appetizer</option>
+            <option value="Main dish">Main Dish</option>
+            <option value="Dessert">Dessert</option>
+            <option value="Drink">Drink</option>
+        </select>
+        <button type="submit" style="margin: 0.3vw; padding: 0.3vw; background-color: #4CAF50; color: white; border: none; border-radius: 5px;">Filter</button>
+    </form>
+    <p style="margin: 1vw;">Showing {{ MenuItems|length }} items for the selected type: <b>{{ SelectedType }}</b></p>
+        <ul>
+        {% for item in MenuItems %}
+            <div 
+            style=
+            "padding: 0.5vw;
+                padding-bottom: 1vw; 
+                padding-top:1vw; 
+                margin-right:2vw;
+                margin-top:0.8vw;
+                margin-bottom:0.8vw;
+                border: 1px solid #ccc; 
+                border-radius: 10px; 
+                background-color: rgb(215, 239, 243);
+                transition: background-color 0.3s ease-in-out;
+                cursor: pointer;"
+                onmouseover="this.style.backgroundColor='rgb(200, 230, 200)';"
+                onmouseout="this.style.backgroundColor='rgb(215, 239, 243)';">
+
+                <h2>{{ item.name }}</h2>
+                <h4>Price: {{ item.price }} EGP</h4>
+                <h4>Category: {{ item.type }}</h4>
+                    {% if item.Available %}
+                    <h3 style="color: green;">Available ✓ </h3>
+                    {% else %}
+                    <h3 style="color: red;">Out of Stock ✗ </h3>
+                    {% endif %}
+            </div>
+        {% endfor %}
+    </ul>
+</body>
