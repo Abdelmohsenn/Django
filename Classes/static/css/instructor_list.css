@@ -1,0 +1,233 @@
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+    font-family: 'Inter', sans-serif;
+    background: #f9f6f1;
+    color: #2e2d29;
+    min-height: 100vh;
+}
+
+nav {
+    background: #8C1515;
+    padding: 0 40px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    height: 56px;
+    border-bottom: 3px solid #620f0f;
+}
+
+.nav-logo {
+    color: white;
+    font-family: 'Source Serif 4', serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+}
+
+.nav-divider {
+    width: 1px;
+    height: 20px;
+    background: rgba(255,255,255,0.3);
+}
+
+.nav-sub {
+    color: rgba(255,255,255,0.75);
+    font-size: 0.85rem;
+}
+
+header {
+    background: linear-gradient(160deg, #8C1515 0%, #620f0f 100%);
+    padding: 72px 40px 64px;
+    position: relative;
+    overflow: hidden;
+}
+
+header::after {
+    content: 'S';
+    position: absolute;
+    right: -20px;
+    bottom: -60px;
+    font-family: 'Source Serif 4', serif;
+    font-size: 20rem;
+    font-weight: 700;
+    color: rgba(255,255,255,0.04);
+    line-height: 1;
+    pointer-events: none;
+}
+
+.header-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+}
+
+header .eyebrow {
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.55);
+    margin-bottom: 12px;
+}
+
+header h1 {
+    font-family: 'Source Serif 4', serif;
+    font-size: 3.2rem;
+    font-weight: 700;
+    color: #ffffff;
+    line-height: 1.1;
+    margin-bottom: 16px;
+}
+
+header p {
+    color: rgba(255,255,255,0.65);
+    font-size: 1rem;
+    max-width: 500px;
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 56px 24px;
+}
+
+.section-header {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 32px;
+}
+
+.section-header h2 {
+    font-family: 'Source Serif 4', serif;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #2e2d29;
+}
+
+.count-badge {
+    background: #8C1515;
+    color: white;
+    font-size: 0.75rem;
+    font-weight: 600;
+    padding: 3px 10px;
+    border-radius: 999px;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 20px;
+}
+
+.card {
+    background: #ffffff;
+    border: 1px solid #e5e0d8;
+    border-radius: 4px;
+    padding: 28px;
+    text-decoration: none;
+    color: inherit;
+    display: block;
+    transition: all 0.25s ease;
+    position: relative;
+    border-left: 4px solid transparent;
+}
+
+.card:hover {
+    border-left-color: #8C1515;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+    transform: translateY(-2px);
+}
+
+.card-top {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 16px;
+}
+
+.avatar {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #8C1515, #b71c1c);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Source Serif 4', serif;
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: white;
+    flex-shrink: 0;
+    overflow: hidden;
+    position: relative;
+}
+
+.avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    top: 0; left: 0;
+}
+
+.card h2 {
+    font-family: 'Source Serif 4', serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #2e2d29;
+    margin-bottom: 2px;
+}
+
+.card .title {
+    font-size: 0.82rem;
+    color: #8C1515;
+    font-weight: 500;
+}
+
+.card-footer {
+    border-top: 1px solid #f0ebe3;
+    padding-top: 14px;
+    margin-top: 4px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.card-footer span {
+    font-size: 0.82rem;
+    color: #716e65;
+}
+
+.view-link {
+    position: absolute;
+    right: 20px;
+    bottom: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: #8C1515;
+    letter-spacing: 0.04em;
+}
+
+.empty {
+    text-align: center;
+    color: #9e9b93;
+    padding: 60px;
+    border: 2px dashed #e5e0d8;
+    border-radius: 4px;
+    font-style: italic;
+}
+
+footer {
+    background: #2e2d29;
+    color: rgba(255,255,255,0.5);
+    text-align: center;
+    padding: 24px;
+    font-size: 0.82rem;
+    margin-top: 40px;
+}
+
+footer span { color: #8C1515; }

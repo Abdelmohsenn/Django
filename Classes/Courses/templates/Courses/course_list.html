@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Courses | Stanford University{% endblock %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'css/instructor_courses.css' %}">
+{% endblock %}
+
+{% block header %}
+<header>
+    <div class="header-inner">
+        <p class="eyebrow">School of Engineering</p>
+        <h1>Course Catalog</h1>
+        <p>Browse all available courses offered across our academic programs.</p>
+    </div>
+</header>
+{% endblock %}
+
+{% block content %}
+    <div class="section-header">
+        <h2>All Courses</h2>
+        <span class="count-badge">{{ courses|length }}</span>
+    </div>
+
+    {% if courses %}
+    <div class="grid">
+        {% for course in courses %}
+        <a class="course-card" href="{% url 'course_students' course.id %}">
+            <div class="card-stripe">
+                <img src="{% static 'images/courses/' %}{{ course.id }}.jpg"
+                     alt="{{ course.name }}"
+                     onerror="if(this.src.endsWith('.jpg')){this.src=this.src.replace('.jpg','.png')}else{this.style.display='none'}">
+            </div>
+            <div class="card-body">
+                <p class="course-code">CS · {{ course.hours }}h</p>
+                <h2>{{ course.name }}</h2>
+                <p>{{ course.description }}</p>
+            </div>
+            <div class="card-footer">
+                <span class="hours-pill">⏱ {{ course.hours }} credit hours</span>
+                <span class="enroll-link">View Students →</span>
+            </div>
+        </a>
+        {% endfor %}
+    </div>
+    {% else %}
+    <div class="empty">No courses found.</div>
+    {% endif %}
+{% endblock %}

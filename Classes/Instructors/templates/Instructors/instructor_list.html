@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Faculty | Stanford University{% endblock %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'css/instructor_list.css' %}">
+{% endblock %}
+
+{% block header %}
+<header>
+    <div class="header-inner">
+        <p class="eyebrow">School of Engineering</p>
+        <h1>Faculty Directory</h1>
+        <p>Explore our world-class instructors and the courses they teach across disciplines.</p>
+    </div>
+</header>
+{% endblock %}
+
+{% block content %}
+    <div class="section-header">
+        <h2>All Faculty Members</h2>
+        <span class="count-badge">{{ instructors|length }}</span>
+    </div>
+
+    {% if instructors %}
+    <div class="grid">
+        {% for instructor in instructors %}
+        <a class="card" href="{% url 'instructor_courses' instructor.id %}">
+            <div class="card-top">
+                <div class="avatar" id="instructor-{{ instructor.id }}">
+                    {{ instructor.name|first }}
+                    <img src="{% static 'images/instructors/' %}{{ instructor.id }}.jpg"
+                         alt="{{ instructor.name }}"
+                         onerror="if(this.src.endsWith('.jpg')){this.src=this.src.replace('.jpg','.png')}else{this.style.display='none'}">
+                </div>
+                <div>
+                    <h2>{{ instructor.name }}</h2>
+                    <span class="title">Professor</span>
+                </div>
+            </div>
+            <div class="card-footer">
+                <span>✉ {{ instructor.email }}</span>
+                <span>☏ {{ instructor.phone }}</span>
+            </div>
+            <span class="view-link">View Courses →</span>
+        </a>
+        {% endfor %}
+    </div>
+    {% else %}
+    <div class="empty">No faculty members found.</div>
+    {% endif %}
+{% endblock %}

@@ -1,0 +1,33 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Stanford University{% endblock %}</title>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:wght@300;400;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    {% block extra_css %}{% endblock %}
+</head>
+<body>
+    <nav>
+        <span class="nav-logo">Stanford University</span>
+        <div class="nav-divider"></div>
+        <span class="nav-sub">Academic Portal</span>
+        <div class="nav-links">
+            <a href="{% url 'instructor_list' %}">Faculty</a>
+            <a href="{% url 'course_list' %}">Courses</a>
+        </div>
+        {% block nav_extra %}{% endblock %}
+    </nav>
+
+    {% block header %}{% endblock %}
+
+    <div class="container">
+        {% block content %}{% endblock %}
+    </div>
+
+    <footer>
+        &copy; 2026 <span>Stanford University</span> · Office of the Registrar
+    </footer>
+</body>
+</html>
