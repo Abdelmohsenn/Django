@@ -1,0 +1,13 @@
+<html>  
+    <head>
+        <title>TODO List</title>
+    </head>
+    <body>
+        <h1>TODO List</h1>
+        <ul>
+            {% for item in data %}
+                <li><a href="{% url 'list_one' item.id %}">{{ item.title }}</a></li>
+            {% endfor %}
+        </ul>
+    </body>
+</html>
